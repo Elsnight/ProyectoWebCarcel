@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 
         $rol_director = Role::where('name', 'director')->first();
         // 5 usuarios que le pertenecen al rol director
-        User::factory()->for($rol_director)->count(5)->create();
+        User::factory()->for($rol_director)->count(10)->create();
 
 
         $rol_guard = Role::where('name', 'guard')->first();
