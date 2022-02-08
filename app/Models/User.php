@@ -115,7 +115,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function updateUIAvatar(string $avatar_url)
     {
-        
+
         $user_image = $this->image;
 
         $image_path = $user_image->path;
@@ -128,6 +128,11 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
+
+    public function hasRole(string $role)
+    {
+        return $this->role->name === $role;
+    }
 
 
 

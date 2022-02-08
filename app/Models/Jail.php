@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Jail extends Model
 {
 
+    protected $fillable = ['name', 'code', 'type', 'capacity', 'ward_id','description'];
+
     use HasFactory;
 
     // Relación de uno a muchos
