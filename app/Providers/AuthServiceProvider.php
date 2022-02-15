@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Report;
 use App\Models\User;
+use App\Policies\ReportPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,9 +15,17 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array<class-string, class-string>
      */
-    protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-    ];
+
+
+    // https://laravel.com/docs/9.x/authorization#registering-policies
+
+    protected $policies = [Report::class => ReportPolicy::class];
+
+
+
+
+
+
 
     /**
      * Register any authentication / authorization services.

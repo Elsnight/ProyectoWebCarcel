@@ -47,7 +47,8 @@ class LoginRequest extends FormRequest
         $username_exist = Auth::attempt(['username' => $this->input('username'), 'password' => $this->input('password')], $this->boolean('remember'));
 
 
-        if (!$email_exist || !$username_exist)
+        if (!$email_exist && !$username_exist)
+
         {
             RateLimiter::hit($this->throttleKey());
 
