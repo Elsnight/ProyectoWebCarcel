@@ -56,6 +56,14 @@ class LoginRequest extends FormRequest
                 'email' => __('auth.failed'),
             ]);
         }
+        #restricion rol pricionero
+        if (auth() -> user() -> role_id == "4")
+        {
+            Auth::logout();
+            throw ValidationException::withMessages([
+                'email' => __('auth.not_allowed'),
+            ]);
+        }
 
         RateLimiter::clear($this->throttleKey());
     }
